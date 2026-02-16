@@ -1,16 +1,14 @@
 [build]
   command = "pip install -r requirements.txt"
-  publish = "public"
+  publish = "app/static"
 
-[functions]
-  
-  [functions.environment]
-    LOG_LEVEL = "INFO"
-    LOG_FILE_ENABLED = "false"
-    DATA_DIR = "/tmp/data"
+[build.environment]
+  PYTHON_VERSION = "3.13"
+  LOG_LEVEL = "INFO"
+  LOG_FILE_ENABLED = "false"
+  DATA_DIR = "/tmp/data"
 
 [[redirects]]
-  
   from = "/*"
   to = "/.netlify/functions/main"
   status = 200
